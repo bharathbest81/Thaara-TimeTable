@@ -33,6 +33,7 @@
     select {
       padding: 5px;
       font-size: 1em;
+      min-width: 120px;
     }
     .status-completed {
       background-color: #2ecc71;
@@ -45,6 +46,11 @@
     .status-notdone {
       background-color: #e74c3c;
       color: white;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
     }
   </style>
 </head>
@@ -65,11 +71,11 @@
         <td>7:00 AM - 8:00 AM</td>
         <td>Morning Exercise</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '7:00 AM - 8:00 AM', 'Morning Exercise')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -77,11 +83,11 @@
         <td>8:00 AM - 9:00 AM</td>
         <td>Breakfast & Hygiene</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '8:00 AM - 9:00 AM', 'Breakfast & Hygiene')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -89,11 +95,11 @@
         <td>9:00 AM - 10:30 AM</td>
         <td>Study Time (Math/Programming)</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '9:00 AM - 10:30 AM', 'Study Time (Math/Programming)')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -101,11 +107,11 @@
         <td>10:30 AM - 11:00 AM</td>
         <td>Snack Break</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '10:30 AM - 11:00 AM', 'Snack Break')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -113,11 +119,11 @@
         <td>11:00 AM - 12:30 PM</td>
         <td>Creative Time (Drawing/Art)</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '11:00 AM - 12:30 PM', 'Creative Time (Drawing/Art)')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -125,11 +131,11 @@
         <td>12:30 PM - 1:30 PM</td>
         <td>Lunch & Rest</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '12:30 PM - 1:30 PM', 'Lunch & Rest')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -137,11 +143,11 @@
         <td>1:30 PM - 3:00 PM</td>
         <td>Outdoor Play / Physical Activity</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '1:30 PM - 3:00 PM', 'Outdoor Play / Physical Activity')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -149,11 +155,11 @@
         <td>3:00 PM - 4:00 PM</td>
         <td>Reading Time</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '3:00 PM - 4:00 PM', 'Reading Time')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -161,11 +167,11 @@
         <td>4:00 PM - 5:00 PM</td>
         <td>Learning Games / Educational Apps</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '4:00 PM - 5:00 PM', 'Learning Games / Educational Apps')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -173,11 +179,11 @@
         <td>5:00 PM - 6:00 PM</td>
         <td>Dinner & Family Time</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '5:00 PM - 6:00 PM', 'Dinner & Family Time')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
@@ -185,30 +191,71 @@
         <td>6:00 PM - 7:00 PM</td>
         <td>Prepare for Bed & Story Time</td>
         <td>
-          <select onchange="updateStatus(this)">
+          <select onchange="handleStatusChange(this, '6:00 PM - 7:00 PM', 'Prepare for Bed & Story Time')">
             <option value="">Select</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="notdone">Not Done</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Not Done">Not Done</option>
           </select>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <script>
-    function updateStatus(selectElem) {
-      // Remove previous status classes
-      selectElem.classList.remove('status-completed', 'status-pending', 'status-notdone');
+  <div id="message"></div>
 
-      // Add class based on selected value
-      if (selectElem.value === 'completed') {
-        selectElem.classList.add('status-completed');
-      } else if (selectElem.value === 'pending') {
-        selectElem.classList.add('status-pending');
-      } else if (selectElem.value === 'notdone') {
-        selectElem.classList.add('status-notdone');
-      }
+  <script>
+    const webAppUrl = "YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE"; // <-- Replace with your deployed Apps Script URL
+
+    function sendStatusUpdate(date, time, activity, status) {
+      if (!status) return;
+
+      const data = {
+        date: date,
+        time: time,
+        activity: activity,
+        status: status
+      };
+
+      fetch(webAppUrl, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => response.json())
+      .then(result => {
+        showMessage(`Status for "${activity}" at "${time}" recorded successfully!`, true);
+      })
+      .catch(error => {
+        showMessage(`Error sending status for "${activity}": ${error}`, false);
+        console.error('Error:', error);
+      });
+    }
+
+    function handleStatusChange(selectElem, time, activity) {
+      const status = selectElem.value;
+      if (!status) return;
+
+      const date = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+
+      // Optionally, update select color based on status
+      selectElem.classList.remove('status-completed', 'status-pending', 'status-notdone');
+      if (status === 'Completed') selectElem.classList.add('status-completed');
+      else if (status === 'Pending') selectElem.classList.add('status-pending');
+      else if (status === 'Not Done') selectElem.classList.add('status-notdone');
+
+      sendStatusUpdate(date, time, activity, status);
+    }
+
+    function showMessage(message, success) {
+      const msgDiv = document.getElementById('message');
+      msgDiv.textContent = message;
+      msgDiv.style.color = success ? 'green' : 'red';
+      setTimeout(() => {
+        msgDiv.textContent = '';
+      }, 5000);
     }
   </script>
 
