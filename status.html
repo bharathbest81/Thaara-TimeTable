@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kids Daily Activity Timetable</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    select {
+      padding: 5px;
+      font-size: 1em;
+    }
+    .status-completed {
+      background-color: #2ecc71;
+      color: white;
+    }
+    .status-pending {
+      background-color: #e67e22;
+      color: white;
+    }
+    .status-notdone {
+      background-color: #e74c3c;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kids Daily Activity Timetable</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Activity</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>7:00 AM - 8:00 AM</td>
+        <td>Morning Exercise</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>8:00 AM - 9:00 AM</td>
+        <td>Breakfast & Hygiene</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>9:00 AM - 10:30 AM</td>
+        <td>Study Time (Math/Programming)</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>10:30 AM - 11:00 AM</td>
+        <td>Snack Break</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>11:00 AM - 12:30 PM</td>
+        <td>Creative Time (Drawing/Art)</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>12:30 PM - 1:30 PM</td>
+        <td>Lunch & Rest</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>1:30 PM - 3:00 PM</td>
+        <td>Outdoor Play / Physical Activity</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>3:00 PM - 4:00 PM</td>
+        <td>Reading Time</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>4:00 PM - 5:00 PM</td>
+        <td>Learning Games / Educational Apps</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>5:00 PM - 6:00 PM</td>
+        <td>Dinner & Family Time</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>6:00 PM - 7:00 PM</td>
+        <td>Prepare for Bed & Story Time</td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="">Select</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="notdone">Not Done</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function updateStatus(selectElem) {
+      // Remove previous status classes
+      selectElem.classList.remove('status-completed', 'status-pending', 'status-notdone');
+
+      // Add class based on selected value
+      if (selectElem.value === 'completed') {
+        selectElem.classList.add('status-completed');
+      } else if (selectElem.value === 'pending') {
+        selectElem.classList.add('status-pending');
+      } else if (selectElem.value === 'notdone') {
+        selectElem.classList.add('status-notdone');
+      }
+    }
+  </script>
+
+</body>
+</html>
